@@ -37,7 +37,13 @@ public class S3_33DeleteLegalEntity {
 			driver.findElementByXPath("//span[text() = 'All Apps']").click();
 			Thread.sleep(2000);
 			driver.findElementByXPath("//p[text() = 'Legal Entities']").click();	
-			driver.findElementByXPath("//span[text()= 'Legal Entities']").click();		
+			driver.findElementByXPath("//span[text()= 'Legal Entities']").click();	
+			driver.executeScript("arguments[0].click();",driver.findElementByXPath("//div[text() = 'New']"));
+			driver.findElementByXPath("//span[text() = 'Name']/ following::input[@type = 'text']").sendKeys("SalesForce Automation By Deepa");
+			driver.findElementByXPath("//button[@title = 'Save']").click();
+			driver.findElementByXPath("//button[@title = 'Close']").click();
+			Thread.sleep(3000);
+			driver.executeScript("arguments[0].click();",driver.findElementByXPath("//span[text() = 'Legal Entities']"));
 			driver.findElementByXPath("//input[@name= 'LegalEntity-search-input']").sendKeys("SalesForce Automation By Deepa", Keys.ENTER);	
 			Thread.sleep(2000);
 			driver.findElementByXPath("//span[@class ='slds-icon_container slds-icon-utility-down']/span").click();
@@ -52,7 +58,7 @@ public class S3_33DeleteLegalEntity {
     }else {
     	System.out.println("Legal Entity is NOT Deleted");
     }
-		
+		driver.close();
 	}
 
 }

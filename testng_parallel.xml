@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="RegSuite2" verbose="5">
+  <test thread-count= "5" name="RegTest2" parallel="classes">
+    <classes>
+     <class name="testng.prog.TestS3_13VerifySorting"/>
+     <!-- <class name="testng.prog.TestS3_1KarthickSampleProg"/>-->
+          <class name="testng.prog.TestS3_3EditOpportunity"/> 
+     <!-- <class name="testng.prog.TestS3_28ArchitectCertifications"/>  -->
+     <!-- <class name="testng.prog.TestS3_33DeleteLegalEntity"/> -->
+    </classes>
+  </test> <!-- Test -->
+</suite> <!-- Suite -->

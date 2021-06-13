@@ -6,6 +6,8 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.interactions.Actions;
+
 import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class S3_3EditOpportunity {
@@ -32,7 +34,7 @@ public class S3_3EditOpportunity {
 		driver.findElementByXPath("//p[text()='Sales']").click();
 		//.click() used in .executeScript
 		driver.executeScript("arguments[0].click();",driver.findElementByXPath("//span[text() = 'Opportunities']"));
-		driver.findElementByXPath("(//input[@type= 'search'])[2]").sendKeys("Sales Force Automation By Deepa", Keys.ENTER);
+		driver.findElementByXPath("(//input[@type= 'search'])[2]").sendKeys("Salesforce Automation By DKK", Keys.ENTER);
 		Thread.sleep(5000);
 		driver.executeScript("arguments[0].click();",driver.findElementByXPath("//div[@data-aura-class = 'forceVirtualAction']/a"));
 		//Failing ????? - org.openqa.selenium.JavascriptException: javascript error: Cannot read property 'click' of undefined
@@ -42,9 +44,15 @@ public class S3_3EditOpportunity {
 		WebElement input1 = driver.findElementByXPath("//input[@name= 'CloseDate']");
 		     input1.clear();
 		     input1.sendKeys("5/9/2021");
+//		driver.findElementByXPath("(//input[contains(@class,'slds-input slds-combobox__input')])[4]").click();
+//		driver.findElementByXPath("//span[text() = '--None--']").click();
+		Thread.sleep(2000);
 		driver.findElementByXPath("(//input[contains(@class,'slds-input slds-combobox__input')])[4]").click();
-		driver.findElementByXPath(" //span[text()='Perception Analysis']").click();
-		Thread.sleep(3000);
+		Thread.sleep(2000);
+		driver.executeScript("arguments[0].click();",driver.findElementByXPath("//lightning-base-combobox-item[@data-value = 'Perception Analysis']"));
+		
+//		driver.executeScript("arguments[0].click();",driver.findElementByXPath("(//span[text()='Perception Analysis'])[2]"));
+	Thread.sleep(3000);
 		driver.executeScript("arguments[0].click();",driver.findElementByXPath("//label[text()='Delivery/Installation Status']/following::input"));
 		driver.findElementByXPath("//span[@title ='In progress']").click();
 		driver.findElementByXPath("//textarea[@class ='slds-textarea']").sendKeys("Adding Description");
@@ -56,8 +64,8 @@ public class S3_3EditOpportunity {
 		else {
 			System.out.println("The Opportunity NOT Edited Successfully");
 		}
-		Thread.sleep(5000);
-		driver.close();
+		//Thread.sleep(3000);
+		//driver.close();
 
 		}	
         

@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -16,6 +18,7 @@ public class S3_13VerifySorting {
 			ChromeOptions options = new ChromeOptions();
 			options.addArguments("--disable-notifications");
 			ChromeDriver driver = new ChromeDriver(options);
+			JavascriptExecutor js = (JavascriptExecutor) driver;
 			driver.manage().window().maximize();
 			driver.get("https://login.salesforce.com");
 			driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
@@ -32,11 +35,13 @@ public class S3_13VerifySorting {
 			driver.findElementByXPath("//button[text()='View All']").click();
 			driver.findElementByXPath("//p[text()='Sales']").click();
 			driver.executeScript("arguments[0].click();",driver.findElementByXPath("//span[text() = 'Accounts']"));
-			Thread.sleep(3000);
-			//driver.executeScript("arguments[0].click();",driver.findElementByXPath("//span[text() = 'Account Name']"));
-			//Thread.sleep(3000);
+			Thread.sleep(8000);
+			WebElement Element = driver.findElementByXPath("//span[text() = 'Accounts']");
+			
+			js.executeScript("arguments[0].scrollIntoView();", Element);
+			
 			List<WebElement>rows = driver.findElementsByXPath("//tbody/tr/th//a");
-			Thread.sleep(2000);
+			Thread.sleep(6000);
 			System.out.println(rows.size());
 			List<String> listAccountName = new ArrayList<String>();
 				for (int i = 1; i <= rows.size(); i++) {
@@ -66,9 +71,9 @@ public class S3_13VerifySorting {
 					}
 					else
 					{
-						System.out.println("Acount Name are displayed in the Ascending order");
+						System.out.println("Acount Name are Not displayed in the Ascending order");
 					}
-						
+					//driver.close();	
 	}
 
 }

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite guice-stage="DEVELOPMENT" verbose="5" name="Failed suite [RegSuite5]">
+  <test thread-count="5" verbose="5" name="RegTest5(failed)">
+    <groups>
+      <run>
+        <include name="Regression"/>
+        <include name="Sanity"/>
+      </run>
+    </groups>
+    <classes>
+      <class name="testng.prog.TestS3_3EditOpportunity">
+        <methods>
+          <include name="runTestS3_3EditOpportunity"/>
+        </methods>
+      </class> <!-- testng.prog.TestS3_3EditOpportunity -->
+      <class name="testng.prog.TestS3_33DeleteLegalEntity">
+        <methods>
+          <include name="runTestS3_33DeleteLegalEntity"/>
+        </methods>
+      </class> <!-- testng.prog.TestS3_33DeleteLegalEntity -->
+    </classes>
+  </test> <!-- RegTest5(failed) -->
+</suite> <!-- Failed suite [RegSuite5] -->
